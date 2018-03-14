@@ -22,7 +22,10 @@ echo\n\' > /browser && \
     chmod +x /browser
 
 ENV BROWSER /browser
+RUN echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen && \
+    dpkg-reconfigure -f noninteractive locales
 ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
 ENV PYSPARK_PYTHON python3
 ENV PYSPARK_PYTHON_DRIVER python3
 
