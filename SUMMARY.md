@@ -1,6 +1,6 @@
 # Table of contents
 
-* [source{d} ml](README.md)
+* [sourced.ml](README.md)
 * [doc](doc/README.md)
   * [Neural Token Splitter architecture description](doc/neural_splitter_arch.md)
   * [Topic Modeling of Repositories](doc/topic_modeling.md)

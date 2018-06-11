@@ -1,4 +1,4 @@
-# source{d} ml
+# sourced.ml
 
 This project is the foundation for [MLonCode](https://github.com/src-d/awesome-machine-learning-on-source-code) research and development. It abstracts feature extraction and training models, allowing you to focus on higher level tasks.
 
