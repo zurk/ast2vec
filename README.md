@@ -1,10 +1,10 @@
-# Source{d} ml [![PyPI](https://img.shields.io/pypi/v/sourced-ml.svg)](https://pypi.python.org/pypi/sourced-ml) [![Build Status](https://travis-ci.org/src-d/ml.svg)](https://travis-ci.org/src-d/ml) [![Docker Build Status](https://img.shields.io/docker/build/srcd/ml.svg)](https://hub.docker.com/r/srcd/ml) [![codecov](https://codecov.io/github/src-d/ml/coverage.svg?branch=master)](https://codecov.io/gh/src-d/ml)
+# source{d} ml [![PyPI](https://img.shields.io/pypi/v/sourced-ml.svg)](https://pypi.python.org/pypi/sourced-ml) [![Build Status](https://travis-ci.org/src-d/ml.svg)](https://travis-ci.org/src-d/ml) [![Docker Build Status](https://img.shields.io/docker/build/srcd/ml.svg)](https://hub.docker.com/r/srcd/ml) [![codecov](https://codecov.io/github/src-d/ml/coverage.svg?branch=master)](https://codecov.io/gh/src-d/ml)
  
 This project is the foundation for machine learning on source code (or simply [MLonCode](https://github.com/src-d/awesome-machine-learning-on-source-code)) research and development. It abstracts machine learning engineer daily routine like features extraction, datasets collection and models training, allowing you to focus on higher level tasks.
 
-Source{d} ml is tightly coupled with [Engine](https://docs.sourced.tech/engine) and delegates all the feature extraction parallelization to it. It is written in Python3 and has been tested on Linux and macOS.
+source{d} ml is tightly coupled with [Engine](https://docs.sourced.tech/engine) and delegates all the feature extraction parallelization to it. It is written in Python3 and has been tested on Linux and macOS.
 
-Note that Source{d} ml is still under active development and can be changed a lot.
+Note that source{d} ml is still under active development and can be changed a lot.
 
 ## Quick start with docker image
 For a quick start, you can try to use our prebuild docker image. Simply run
@@ -20,7 +20,7 @@ Cannot connect to the Docker daemon. Is the docker daemon running on this host?
 And you are sure that the daemon is running, then you need to add your user to `docker` group: refer to the [documentation](https://docs.docker.com/engine/installation/linux/linux-postinstall/#manage-docker-as-a-non-root-user).
 
 ## Installation
-[Engine](https://docs.sourced.tech/engine) uses Spark. So ethier you have it and want to [use existing Apache Spark installation](#use-existing-apache-spark) or [get it included](with-apache-spark-included).
+[Engine](https://docs.sourced.tech/engine) uses Spark. So ethier you have it and want to [use existing Apache Spark installation](#use-existing-apache-spark) or [get it included](#with-apache-spark-included).
 
 ### Pre-requisites
 In both cases, you will need to have some native libraries installed. E.g., on Ubuntu `apt install curl libxml2-dev libsnappy-dev`. Some parts require [Tensorflow](https://tensorflow.org). Please, refer its documentation to install.
@@ -59,14 +59,14 @@ Repositories preprocessing. Converts repositories to parquet files with all nece
 
 Usually, only this step requires [Engine](https://docs.sourced.tech/engine) to process repository content as well as [Babelfish](https://docs.sourced.tech/babelfish) if you extract UASTs for analysis.
 
-Please refer to [preprocrepos page](doc/cmd/preprocrepos.md) for more information.
+Please refer to [preprocrepos page](doc/cmd/preprocrepos.md) for more information or [examples page](doc/examples#2-preprocessing-step) for usage example.
 
 ### repo2...
 Such commands as 'repos to something' extract datasets one can use to train models. [Modelforge format](https://docs.sourced.tech/modelforge) is used to store such models.
 
-There are next commands available now.
+There are next commands available now. You can find usage examples on [examples page](docs/examples.md).
 
-* **repos2bow**. A bow is a weighted bag of words (or features). Converts a document to its features. Available features are described in [BOW Features](bow-features) section.
+* **repos2bow**. A bow is a weighted bag of words (or features). Converts a document to its features. Available features are described in [BOW Features](docs/bow_features.md) section. 
 * **repos2df** calculate document frequencies of features extracted from source code.
 * **repos2ids** convert source code to a bag of identifiers.
 * **repos2coocc** convert source code to the sparse co-occurrence matrix of identifiers.
@@ -86,10 +86,10 @@ There are next four commands to build `id2vec` model:
 ### Topic modeling
 There are a set of commands that can be used to build a topic model on top of documents. 
 * **bow2vw** convert a bag-of-words model to the dataset in Vowpal Wabbit format. It is an input format to [BigARTM](https://github.com/bigartm/bigartm) a powerful tool for topic modeling.
-* **bigartm** install bigartm/bigartm to the current working directory. After that, you can use it separately via `bigartm` command. Please refer [official documentation](http://docs.bigartm.org/en/stable/) for help.  
+* **bigartm** install bigartm/bigartm to the current working directory. After that, you can use it separately via `bigartm` command. Please refer [official documentation](http://docs.bigartm.org/en/stable/) for help.
 * **bigartm2asdf** converts a human-readable BigARTM model back to Modelforge format.
 
-For more information about Topic modeling pipeline please refer [topic modeling page](doc/topic_modeling.md).
+For more information about Topic modeling pipeline and examples please refer [topic modeling page](doc/topic_modeling.md).
 
 ### Utils
 There are several additional helpers in command list: 
